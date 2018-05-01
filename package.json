@@ -1,7 +1,6 @@
 {
   "name": "indecision-app",
   "version": "1.0.0",
-  "description": "",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -18,5 +17,9 @@
   "homepage": "https://github.com/chrisnopa/indecision-app#readme",
   "devDependencies": {
     "babel-cli": "^6.26.0"
-  }
+  },
+  "dependencies": {
+    "babel-cli": "^6.26.0"
+  },
+  "description": ""
 }

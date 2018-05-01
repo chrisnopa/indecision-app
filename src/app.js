@@ -1,6 +1,7 @@
-"use strict";
-
 console.log("App is running fine");
+
+
+
 
 // var app = {
 //   name:"Ma nouvelle application",
@@ -26,45 +27,32 @@ console.log("App is running fine");
 //   );
 
 var user = {
-  name: "Chris",
-  age: 29,
-  location: "Paris",
-  gender: "male"
+   name : "Chris",
+   age : 29,
+   location : "Paris",
+   gender : "male"
 };
+
+
 
 function getLocation(location) {
   if (location) {
-    return React.createElement(
-      "p",
-      null,
-      "Location : ",
-      location
-    );
+    return <p>Location : {location}</p>;
   }
 };
 
-var templateTwo = React.createElement(
-  "div",
-  null,
-  React.createElement(
-    "h1",
-    null,
-    user.name.toUpperCase()
-  ),
-  getLocation(user.location),
-  React.createElement(
-    "p",
-    null,
-    "age = ",
-    user.age
-  ),
-  React.createElement(
-    "p",
-    null,
-    "gender = ",
-    user.gender
+
+var templateTwo = (
+  <div>
+    <h1>
+      {user.name.toUpperCase()}
+    </h1>
+    {getLocation(user.location)}
+    <p>age = {user.age}</p>
+{   <p>gender = {user.gender}</p>}
+  </div>
   )
-);
 
 var appRoot = document.getElementById("app");
 ReactDOM.render(templateTwo, appRoot);
+
