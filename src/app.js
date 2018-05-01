@@ -3,32 +3,25 @@ console.log("App is running fine");
 
 
 
-// var app = {
-//   name:"Ma nouvelle application",
-//   title: "Une app sexy",
-//   subtitle: "qui vous sera bien utile",
-//   item: "test"
-// };
+const app = {
+  name:"Ma nouvelle application",
+  title: "Une app sexy",
+  subtitle: "qui vous sera bien utile",
+  options: ['test1', 'test5']
+};
 
-// var template = (
-//   <div>
-//     <h1>{app.name}</h1>
-//     <h2>{app.title}</h2>
-//     <p>{app.subtitle}</p>
-//     <ol>
-//       <li>
-//         {app.item}
-//       </li>
-//       <li>
-//         {app.item}
-//       </li>
-//     </ol>
-//   </div>
-//   );
+const template = (
+  <div>
+    <h1>{app.name}</h1>
+    <h2>{app.title}</h2>
+    {app.subtitle && <p>{app.subtitle}</p>}
+    <p>{app.options.length > 0 ? "Here are your options : ": "No options"}</p>
+  </div>
+  );
 
-var user = {
-   name : "Chris",
-   age : 29,
+const user = {
+   // name : "Chris",
+   age : 19,
    location : "Paris",
    gender : "male"
 };
@@ -38,21 +31,21 @@ var user = {
 function getLocation(location) {
   if (location) {
     return <p>Location : {location}</p>;
-  }
 };
+}
 
 
-var templateTwo = (
+const templateTwo = (
   <div>
     <h1>
-      {user.name.toUpperCase()}
+    {user.name ? user.name.toUpperCase() : "Anonyme"}
     </h1>
+    {(user.age && user.age >= 18) && <p>Age = {user.age}</p>}
     {getLocation(user.location)}
-    <p>age = {user.age}</p>
-{   <p>gender = {user.gender}</p>}
+    <p>gender = {user.gender}</p>
   </div>
-  )
+  );
 
-var appRoot = document.getElementById("app");
-ReactDOM.render(templateTwo, appRoot);
+const appRoot = document.getElementById("app");
+ReactDOM.render(template, appRoot);
 
