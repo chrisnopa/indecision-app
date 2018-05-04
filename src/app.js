@@ -3,49 +3,53 @@ console.log("App is running fine");
 
 
 
-const app = {
-  name:"Ma nouvelle application",
-  title: "Une app sexy",
-  subtitle: "qui vous sera bien utile",
-  options: ['test1', 'test5']
+// const app = {
+//   name:"Ma nouvelle application",
+//   title: "Une app sexy",
+//   subtitle: "qui vous sera bien utile",
+//   options: ['test1', 'test5']
+// };
+
+// const template = (
+//   <div>
+//     <h1>{app.name}</h1>
+//     <h2>{app.title}</h2>
+//     {app.subtitle && <p>{app.subtitle}</p>}
+//     <p>{app.options.length > 0 ? "Here are your options : ": "No options"}</p>
+//   </div>
+//   );
+
+let count = 0;
+const addOne = () => {
+  count++;
+  renderAppCounter();
 };
 
-const template = (
-  <div>
-    <h1>{app.name}</h1>
-    <h2>{app.title}</h2>
-    {app.subtitle && <p>{app.subtitle}</p>}
-    <p>{app.options.length > 0 ? "Here are your options : ": "No options"}</p>
-  </div>
-  );
-
-const user = {
-   // name : "Chris",
-   age : 19,
-   location : "Paris",
-   gender : "male"
+const minusOne = () => {
+  count--;
+  renderAppCounter();
 };
 
-
-
-function getLocation(location) {
-  if (location) {
-    return <p>Location : {location}</p>;
+const buttonReset = () => {
+  count = 0;
+  renderAppCounter();
 };
-}
 
-
-const templateTwo = (
-  <div>
-    <h1>
-    {user.name ? user.name.toUpperCase() : "Anonyme"}
-    </h1>
-    {(user.age && user.age >= 18) && <p>Age = {user.age}</p>}
-    {getLocation(user.location)}
-    <p>gender = {user.gender}</p>
-  </div>
-  );
 
 const appRoot = document.getElementById("app");
-ReactDOM.render(template, appRoot);
+const renderAppCounter = () => {
+  const templateTwo = (
+    <div>
+      <h1>
+        Count :{count}
+      </h1>
+      <button onClick = {addOne}>+ 1</button>
+      <button onClick= {minusOne}>- 1</button>
+      <button onClick= {buttonReset}>Reset</button>
+    </div>
+    );
+  ReactDOM.render(templateTwo, appRoot);
+};
+
+renderAppCounter();
 

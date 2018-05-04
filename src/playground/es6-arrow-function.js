@@ -19,4 +19,6 @@ const getFirstName = (fullName) => {
 console.log(getFirstName("chris ezfzz"));
 
 const getShort =(fullName) => fullName.split(' ')[0];
-console.log(getShort("Astrid Bleub"))
+console.log(getShort("Astrid Bleub"));
+
+
